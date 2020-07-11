@@ -15,7 +15,7 @@ body {
     width: 100%;
 }
 
-#react-container {
+#root {
     height: 100%;
 }
 
@@ -62,7 +62,7 @@ a, a:hover, a:focus {
     text-align: left;
 }
 
-.reslist-content {
+.restaurants-content {
     margin-top: 100px;
     display: inline-block;
     text-align: left;
