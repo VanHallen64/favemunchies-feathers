@@ -10,7 +10,6 @@ class AddLocation extends Component {
     }
 
     componentDidMount() {
-        console.log("mounted")
         const locationService = client.service('locations');
         locationService.find({
             query: {

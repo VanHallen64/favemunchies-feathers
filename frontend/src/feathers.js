@@ -7,5 +7,8 @@ const client = feathers();
 const restClient = rest('http://localhost:8080');
 
 client.configure(restClient.fetch(window.fetch));
+client.configure(feathers.authentication({
+    storage: window.localStorage
+}));
 
 export default client;

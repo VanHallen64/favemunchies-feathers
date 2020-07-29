@@ -36,6 +36,10 @@ body {
     width: 100%;
 }
 
+h1 {
+    color: white;
+}
+
 /* Fonts for paragraph and locations grid */
 p, .location-container {
     font-family: Avenir, sans-serif;
@@ -155,13 +159,8 @@ label {
     background: #fff;
 }
 
-#sidebar ul li a:active {
+#sidebar ul li .selected {
     color: rgb(255, 174, 0);
-    background: #fff;
-}
-
-.active {
-    color: rgb(0, 0, 0);
     background: #fff;
 }
 

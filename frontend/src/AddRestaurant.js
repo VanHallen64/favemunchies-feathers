@@ -30,14 +30,9 @@ class AddRestaurant extends Component {
               locations: newlocations
             });
         });
-    
-        // Add new location to the location list
-        locationService.on('created', location => this.setState({
-            locations: this.state.locations.concat(location)
-          }));
       }
     
-      addlocation(ev) {
+      addRestaurant(ev) {
         console.log(ev);
         // const inputISBN = ev.target.querySelector('[id="isbn"]');
         // const isbn = parseInt( inputISBN.value.trim() );
@@ -74,16 +69,16 @@ class AddRestaurant extends Component {
     render () {
         return (
             <div>
-                <form className="form-container needs-validation" onSubmit={this.addlocation.bind(this)}>
-                    <p className="description">Add the locations of your favourite restaurants.</p>
+                <form className="form-container needs-validation" onSubmit={this.addRestaurant.bind(this)}>
+                    <p className="description">Add your favorite restaurants.</p>
                     <label>
-                        <p className="form-subtitle">Enter location name:</p>
-                        <input className="form-control form-control-lg" type="text" placeholder="Enter location name"></input>
+                        <p className="form-subtitle">Enter restaurant name:</p>
+                        <input className="form-control form-control-lg" type="text" placeholder="Enter restaurant name"></input>
                         <div className="invalid-feedback">
                             An ISBN is required.
                         </div>
                     </label>
-                    <button className="btn btn-dark" type='submit' value='Submit location'> Submit location</button>
+                    <button className="btn btn-dark" type='submit' value='Submit restaurant'> Submit restaurant</button>
                 </form>
             </div>
         );

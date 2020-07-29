@@ -30,13 +30,16 @@
     "oauth": {
       "redirect": "/",
       "google": {
-        "key": "<google oauth key>",
-        "secret": "<google oauth secret>",
+        "key": "638486569468-pmq7a6gmn5se493vv49nhb3oaopvedrs.apps.googleusercontent.com",
+        "secret": "GOOGLE_AUTH_SECRET",
         "scope": [
           "email",
           "profile",
           "openid"
-        ]
+        ],
+        "redirect_uri": "http://localhost:8080/oauth/google/callback",
+        "host": "localhost",
+        "callback": "/oauth/google/authenticate"
       }
     }
   },

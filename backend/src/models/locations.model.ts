@@ -1,4 +1,4 @@
-// restaurants-model.js - A mongoose model
+// locations-model.js - A mongoose model
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
@@ -6,12 +6,11 @@ import { Application } from '../declarations';
 import { Model, Mongoose } from 'mongoose';
 
 export default function (app: Application): Model<any> {
-  const modelName = 'restaurants';
+  const modelName = 'locations';
   const mongooseClient: Mongoose = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    name: { type: String, required: true },
-    location: {type: Schema.Types.ObjectId, ref: 'Location'}
+    name: { type: String, required: true }
   }, {
     timestamps: true
   });

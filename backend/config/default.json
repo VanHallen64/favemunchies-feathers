@@ -1,7 +1,7 @@
 {
   "host": "localhost",
   "port": 8080,
-  "public": "../public/",
+  "public": "../../frontend/build",
   "paginate": {
     "default": 10,
     "max": 50
@@ -30,15 +30,18 @@
     "oauth": {
       "redirect": "/",
       "google": {
-        "key": "<google oauth key>",
-        "secret": "<google oauth secret>",
+        "key": "638486569468-pmq7a6gmn5se493vv49nhb3oaopvedrs.apps.googleusercontent.com",
+        "secret": "GOOGLE_AUTH_SECRET",
         "scope": [
           "email",
           "profile",
           "openid"
-        ]
+        ],
+        "redirect_uri": "http://localhost:8080/oauth/google/callback",
+        "host": "localhost",
+        "callback": "/oauth/google/authenticate"
       }
     }
   },
-  "mongodb": "mongodb+srv://cpsc2650:cpsc2650password@cluster0-1629n.mongodb.net/cpsc2650retryWrites=true&w=majority"
+  "mongodb": "MONGODBURI"
 }

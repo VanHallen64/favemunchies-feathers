@@ -9,57 +9,61 @@ class Restaurants extends Component {
 
     }
 
-    // componentDidMount() {
-    //     const restaurantService = client.service('restaurants');
-    //     restaurantService.find({
-    //         query: {
-    //           $limit: 25
-    //         }
-    //     }).then( allrestaurants => {
-    //         const restaurants = allrestaurants.data;
-    //         this.setState({ restaurantService, restaurants });
-    //     });
+    componentDidMount() {
+        const restaurantService = client.service('restaurants');
+        restaurantService.find({
+            query: {
+              $limit: 25
+            }
+        }).then( allrestaurants => {
+            const restaurants = allrestaurants.data;
+            this.setState({ restaurantService, restaurants });
+        });
 
-    //     const locationsService = client.service('locations');
-    //     locationsService.find({
-    //         query: {
-    //           $limit: 25
-    //         }
-    //     }).then( allLocations => {
-    //         const locations = allLocations.data;
-    //         this.setState({ locationsService, locations });
-    //     });
+        const locationsService = client.service('locations');
+        locationsService.find({
+            query: {
+              $limit: 25
+            }
+        }).then( allLocations => {
+            const locations = allLocations.data;
+            this.setState({ locationsService, locations });
+        });
     
-    //     // Remove a restaurant from the list
-    //     restaurantService.on('removed', restaurant => {
-    //         console.log("removed restaurant: " + restaurant.name );
-    //         const currentRestaurants = this.state.restaurants.filter((deletedrestaurant,index,arr) => {
-    //           return deletedrestaurant._id !== restaurant._id;
-    //         });
-    //         this.setState({ 
-    //           restaurants: currentRestaurants
-    //         }); 
-    //     });
+        // Remove a restaurant from the list
+        restaurantService.on('removed', restaurant => {
+            console.log("removed restaurant: " + restaurant.name );
+            const currentRestaurants = this.state.restaurants.filter((deletedrestaurant,index,arr) => {
+              return deletedrestaurant._id !== restaurant._id;
+            });
+            this.setState({ 
+              restaurants: currentRestaurants
+            }); 
+        });
     
-    //     // Add new restaurant to the list
-    //     restaurantService.on('created', restaurant => this.setState({
-    //         restaurants: this.state.restaurants.concat(restaurant)
-    //     }));
-    // }
-    
+        // Add new restaurant to the list
+        restaurantService.on('created', restaurant => this.setState({
+            restaurants: this.state.restaurants.concat(restaurant)
+        }));
+    }
 
     render () {
+        let content;
+        if (!this.state.restaurants || !this.state.locations) {
+            content = <h1>There are no restaurants in your list</h1>
+        } else {  
+            content = this.state.locations.map(location => <ul className="location-container" key={location._id}>
+                <h2>{location.name.toUpperCase()}</h2>
+                {this.state.restaurants.map(restaurant => <li key={restaurant._id}>{restaurant.name}
+                    <button onClick={this.deleteRestaurant.bind(this, restaurant._id)} type="button" className="btn btn-danger">Delete</button>
+                </li>)}
+            </ul>)
+        }
         return (
-            <h1>RESTAURANTS</h1>
-            // <div className="restaurants-content" id="restaurants-content">
-            //     {/* Render only after restaurants has been initialized*/}
-            //     {this.state.restaurants.length > 0 && this.state.locations.length >0 && this.state.locations.map(location => <ul className="location-container" key={location._id}>
-            //         <h2>{location.name.toUpperCase()}</h2>
-            //         {this.state.restaurants.map(restaurant => <li key={restaurant._id}>{restaurant.name}
-            //             <button onClick={this.deleteRestaurant.bind(this, restaurant._id)} type="button" className="btn btn-danger">Delete</button>
-            //         </li>)}
-            //     </ul>)}
-            // </div>
+            <div className="restaurants-content" id="restaurants-content">
+                {/* Render only after restaurants has been initialized*/}
+                {content}
+            </div>
         );
     }
 }
