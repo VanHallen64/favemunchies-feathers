@@ -50,19 +50,19 @@ class Restaurants extends Component {
     render () {
         let content;
         if (!this.state.restaurants || !this.state.locations) {
-            content = <h1>There are no restaurants in your list</h1>
-        } else {  
-            content = this.state.locations.map(location => <ul className="location-container" key={location._id}>
-                <h2>{location.name.toUpperCase()}</h2>
-                {this.state.restaurants.map(restaurant => <li key={restaurant._id}>{restaurant.name}
-                    <button onClick={this.deleteRestaurant.bind(this, restaurant._id)} type="button" className="btn btn-danger">Delete</button>
-                </li>)}
-            </ul>)
+            return (<h1>Loading...</h1>);
+        } else if (this.state.restaurants.length < 1) {
+            return (<h1>There are no restaurants in your list</h1>);
         }
         return (
             <div className="restaurants-content" id="restaurants-content">
                 {/* Render only after restaurants has been initialized*/}
-                {content}
+                {this.state.locations.map(location => <ul className="location-container" key={location._id}>
+                    <h2>{location.name.toUpperCase()}</h2>
+                    {this.state.restaurants.map(restaurant => <li key={restaurant._id}>{restaurant.name}
+                        <button onClick={this.deleteRestaurant.bind(this, restaurant._id)} type="button" className="btn btn-danger">Delete</button>
+                    </li>)}
+                </ul>)}
             </div>
         );
     }
