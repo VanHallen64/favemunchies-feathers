@@ -12,8 +12,8 @@ export default (options = {}): Hook => {
       throw new Error("A restaurant name is needed");
     }
 
-    // Name can't be longer than 20 characters
-    const name = data.name.substring(0, 20);    
+    // Name can't be longer than 30 characters
+    const name = data.name.substring(0, 30);    
 
     /* Check if the restaurant already exists*/
     const restaurants = await app.service('restaurants').find({
@@ -23,7 +23,11 @@ export default (options = {}): Hook => {
     });
 
     if(restaurants.total > 0) {
-      throw new Error("You already added that restaurant");
+      for(let restaurant of restaurants.data ) {
+        if (restaurant.location == data.location) {
+          throw new Error("You already added that restaurant at that location");
+        }
+      }
     }
 
     // Get rid of any stray properties
