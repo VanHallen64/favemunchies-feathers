@@ -28,7 +28,8 @@ export default (options = {}): Hook => {
 
     // Get rid of any stray properties
     context.data = {
-      name
+      name,
+      location: data.location
     }
     return context;
   };

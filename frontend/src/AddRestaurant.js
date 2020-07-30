@@ -5,12 +5,20 @@ class AddRestaurant extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            restaurantClass: 'form-control form-control-lg',
+            errorMessage: 'A valid location name is required',
+            formValidationClass: ''
+        };
 
     }
 
     componentDidMount() {
         const locationService = client.service('locations');
+        const restaurantService = client.service('restaurants');
+
+        this.setState({ restaurantService });
+
         locationService.find({
             query: {
                 $limit: 25
@@ -19,6 +27,7 @@ class AddRestaurant extends Component {
             const locations = allLocations.data;
             this.setState({ locationService, locations });
         });
+
 
         // Remove a location from the list
         locationService.on('removed', location => {
@@ -33,50 +42,72 @@ class AddRestaurant extends Component {
     }
 
     addRestaurant(ev) {
-        console.log(ev);
-        const inputISBN = ev.target.querySelector('[id="isbn"]');
-        const isbn = parseInt( inputISBN.value.trim() );
+        const inputName = ev.target.querySelector('[id="resName"]');
+        const inputLocation = ev.target.querySelector('[id="location"]');
+        const name = inputName.value.trim();
+        const locationName = inputLocation.value.trim();
 
-        const inputTitle = ev.target.querySelector('[id="title"]');
-        const title = inputTitle.value.trim();
-
-        const inputPages = ev.target.querySelector('[id="pages"]');
-        const pages = parseInt( inputPages.value.trim() );
-
-        console.log( "ISBN: " + isbn );
-        console.log( "Title: " + title );
-        console.log( "Pages: " + pages );
-
-        this.state.locationService.create({
-            isbn,
-            title,
-            pages
-        })
-        .then(() => {
-            inputISBN.value = '';
-            inputTitle.value = '';
-            inputPages.value = '';
+        const locationFound = this.state.locations.find(location => {
+            return location.name == locationName;
         });
 
+        if (ev.target.checkValidity()) {
+            this.state.restaurantService.create({
+                name,
+                location: locationFound._id
+            })
+            .then(() => {
+                console.log("Created new restaurant: " + name);
+                this.setState({
+                    restaurantClass: 'form-control form-control-lg',
+                    errorMessage: 'A valid restaurant name is required',
+                    formValidationClass: ''
+                });
+            })
+            .catch(error => {
+                this.setState({
+                    restaurantClass: 'form-control form-control-lg is-invalid',
+                    errorMessage: error.message,
+                    formValidationClass: ''                    
+                });
+            });
+        } else {
+            this.setState({
+                restaurantClass: 'form-control form-control-lg',
+                errorMessage: 'A valid restaurant name is required',
+                formValidationClass: 'was-validated'
+            });
+        }
+
+        inputName.value = '';
+
         ev.preventDefault();
+        ev.stopPropagation();
     }
 
-    deletelocation(id, ev) {
+    deleteLocation(id, ev) {
         this.state.locationService.remove(id);
     }
 
     render() {
         return (
             <div>
-                <form className="form-container needs-validation" onSubmit={this.addRestaurant.bind(this)}>
-                    <p className="description">Add your favorite restaurants.</p>
-                    <label>
-                        <p className="form-subtitle">Enter restaurant name:</p>
-                        <input className="form-control form-control-lg" type="text" placeholder="Enter restaurant name"></input>
+                <form className={"form-container needs-validation " + this.state.formValidationClass} onSubmit={this.addRestaurant.bind(this)} noValidate>
+                    <p className="description">Add your favourite restaurants.</p>
+                    <div className="form-group">
+                        <label htmlFor="resName" className="form-subtitle form-control-label">Enter restaurant name:</label>
+                        <input id="resName" className={this.state.restaurantClass} type="text" placeholder="Enter restaurant name" pattern="[A-Za-z]{1,30}" required/>
                         <div className="invalid-feedback">
-                            A name is required.
+                            {this.state.errorMessage}
                         </div>
-                    </label>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="location" className="form-subtitle">Choose a location:</label>
+                        <select id="location" className="form-control form-control-lg">
+                            <option value=''>None</option>
+                            {this.state.locations && this.state.locations.map(location=><option key={location.name} value={location.name}>{location.name}</option>)}
+                        </select>
+                    </div>
                     <button className="btn btn-dark" type='submit' value='Submit restaurant'> Submit restaurant</button>
                 </form>
             </div>

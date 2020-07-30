@@ -55,13 +55,13 @@ a, a:hover, a:focus {
 
 /* Format for blocks in forms and location grid */
 .form-container, .location-container {
-    margin-top: 100px;
+    margin-top: 40px;
     display: inline-block;
     background-color: rgba(87, 86, 86, 0.794);
     padding: 30px;
     width: 500px;
     height: 200hv;
-    border-radius: 8px;
+    border-radius: 6px;
     vertical-align: top;
     text-align: left;
 }

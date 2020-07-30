@@ -45,9 +45,6 @@ class AddLocation extends Component {
         const name = inputName.value.trim();
 
         if (ev.target.checkValidity()) {
-            this.setState({
-                locationClass: 'form-control form-control-lg'
-            });
             this.state.locationService.create({
                 name: name
             })
@@ -93,7 +90,6 @@ class AddLocation extends Component {
                         </div>
                     </div>
                     <button className="btn btn-dark" type='submit' value='Submit location'> Submit location</button>
-                    {this.props.alert}
                 </form>
             </div>
         );
