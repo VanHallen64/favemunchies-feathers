@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import client from './feathers';
+import $ from 'jquery';
 
 class AddLocation extends Component {
     constructor(props) {
@@ -55,6 +56,7 @@ class AddLocation extends Component {
                     errorMessage: 'A valid location name is required',
                     formValidationClass: ''
                 });
+                this.showAlert();
             })
             .catch(error => {
                 this.setState({
@@ -77,16 +79,28 @@ class AddLocation extends Component {
         ev.stopPropagation();
     }
 
+    showAlert() {
+        $(".alert-success").slideDown().show();
+    }
+
+    hideAlert() {
+        $(".alert-success").slideUp().hide(1000);
+    }
+
     render() {
         return (
             <div>
                 <form className={"form-container needs-validation " + this.state.formValidationClass} onSubmit={this.addLocation.bind(this)} noValidate>
-                    <p className="description">Add the locations of your favourite restaurants.</p>
+                    <p className="description">Add your favorite restaurants here.</p>
                     <div>
                         <label htmlFor="locName" className="form-subtitle form-control-label">Enter location name:</label>
                         <input id="locName" className={this.state.locationClass} type="text" placeholder="Enter location name" pattern="[A-Za-z ]{1,30}" required/>
-                        <div className="invalid-feedback">
+                        <div className="invalid-feedback alert-danger">
                             {this.state.errorMessage}
+                        </div>
+                        <div className="alert alert-success alert-dismissible fade show" role="alert">
+                            Location added
+                            <button type="button" className="close" onClick={this.hideAlert} data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                     </div>
                     <button className="btn btn-dark" type='submit' value='Submit location'> Submit location</button>

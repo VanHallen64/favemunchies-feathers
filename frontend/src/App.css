@@ -68,9 +68,9 @@ a, a:hover, a:focus {
 
 #loading-restaurants, #no-restaurants{
     text-align: center;
-    position: absolute;
-    top: 45%;
-    right: 15%;
+    position: sticky;
+    top: 50%;
+    left: 25%;
 }
 
 .restaurants-content {
@@ -109,11 +109,6 @@ label {
 .form-subtitle{
     font-weight: 700;
     margin-top: 50px;
-}
-    
-.btn {
-    margin-top: 20px;
-    transition: ease-in;
 }
 
 /* ------SIDEBAR STYLE------- */
@@ -204,7 +199,7 @@ a.download {
     right: 42%;
 }
 
-#success-alert {
+.alert-success {
     margin-top: -3px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -212,7 +207,6 @@ a.download {
     display: none;
 }
 
-/* When moving the mouse over the close button */
-.closebtn:hover {
-    color: black;
-} 
+.btn-xs {
+    padding: 0rem .5rem;
+}

@@ -46,6 +46,16 @@ class Restaurants extends Component {
         restaurantService.on('created', restaurant => this.setState({
             restaurants: this.state.restaurants.concat(restaurant)
         }));
+
+        // // Remove restaurant from the list
+        // restaurantService.on('removed', restaurant => {
+        //     let restaurantsTemp = [...this.state.restaurants]; // make a separate copy of the array
+        //     let index = restaurantsTemp.indexOf(restaurant);
+        //     if (index !== -1) {
+        //         restaurantsTemp.splice(index, 1);
+        //         this.setState({restaurants: restaurantsTemp});
+        //     }
+        // })
     }
 
     renderRestaurants(element) {       
@@ -56,9 +66,9 @@ class Restaurants extends Component {
             let container = <ul className="location-container list-group" key={location._id}>
                 <h2>{location.name}</h2>
                 {restaurantsInLocation.map(restaurant => <li key={restaurant._id} className="list-group-item">
-                    {restaurant.name}
-                    <button onClick={event=>this.deleteRestaurant(event, restaurant._id)} type="button" className="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
+                    <span>{restaurant.name}</span>
+                    <button onClick={event=>this.deleteRestaurant(event, restaurant._id)} type="button" className="btn btn-xs btn-outline-danger float-right">
+                        &times;
                     </button>
                 </li>)}
             </ul>
@@ -70,8 +80,9 @@ class Restaurants extends Component {
         return locationContainers;
     }
 
-    deleteRestaurants(id, ev) {
-        this.state.locationService.remove(id);
+    deleteRestaurant(ev, id) {
+        console.log(id);
+        this.state.restaurantService.remove(id);
     }
 
     render () {

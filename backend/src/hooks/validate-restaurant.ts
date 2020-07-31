@@ -13,7 +13,11 @@ export default (options = {}): Hook => {
     }
 
     // Name can't be longer than 30 characters
-    const name = data.name.substring(0, 30);
+    let name = data.name.substring(0, 30);
+
+    // Capitalizes first letters of words in string
+    const capitalize = (str: String, lower: Boolean) => (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, match => match.toUpperCase());
+    name = capitalize(name, true);
 
     /* Check if the restaurant already exists*/
     const restaurants = await app.service('restaurants').find({

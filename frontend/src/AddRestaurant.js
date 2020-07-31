@@ -87,19 +87,16 @@ class AddRestaurant extends Component {
         ev.stopPropagation();
     }
 
-    showAlert(e) {
-  
-            $("#success-alert").slideDown().show();
-       
+    deleteLocation(id, ev) {
+        this.state.locationService.remove(id);
+    }
+
+    showAlert() {
+        $(".alert-success").slideDown().show();
     }
 
     hideAlert() {
-        $("#success-alert").slideUp().hide(1000);
-    }
-
-
-    deleteLocation(id, ev) {
-        this.state.locationService.remove(id);
+        $(".alert-success").slideUp().hide(1000);
     }
 
     render() {
@@ -113,7 +110,7 @@ class AddRestaurant extends Component {
                         <div className="invalid-feedback">
                             {this.state.errorMessage}
                         </div>
-                        <div id="success-alert" className="alert alert-success alert-dismissible fade show" role="alert">
+                        <div className="alert alert-success alert-dismissible fade show" role="alert">
                             Restaurant added
                             <button type="button" className="close" onClick={this.hideAlert} data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
