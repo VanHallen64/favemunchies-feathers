@@ -13,7 +13,7 @@ export default (options = {}): Hook => {
     }
 
     // Name can't be longer than 30 characters
-    const name = data.name.substring(0, 30);    
+    const name = data.name.substring(0, 30);
 
     /* Check if the restaurant already exists*/
     const restaurants = await app.service('restaurants').find({

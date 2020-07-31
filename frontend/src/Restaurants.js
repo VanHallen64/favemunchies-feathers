@@ -13,7 +13,8 @@ class Restaurants extends Component {
         const restaurantService = client.service('restaurants');
         restaurantService.find({
             query: {
-              $limit: 25
+              $limit: 25,
+              $populate: ['location']
             }
         }).then( allrestaurants => {
             const restaurants = allrestaurants.data;
@@ -47,22 +48,42 @@ class Restaurants extends Component {
         }));
     }
 
+    renderRestaurants(element) {       
+        let locationContainers = this.state.locations.reduce((result, location) => {
+            let restaurantsInLocation = this.state.restaurants.filter(restaurant => {
+                return location.name == restaurant.location.name;
+            });
+            let container = <ul className="location-container list-group" key={location._id}>
+                <h2>{location.name}</h2>
+                {restaurantsInLocation.map(restaurant => <li key={restaurant._id} className="list-group-item">
+                    {restaurant.name}
+                    <button onClick={event=>this.deleteRestaurant(event, restaurant._id)} type="button" className="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </li>)}
+            </ul>
+            if (restaurantsInLocation.length > 0) {
+                result.push(container);
+            }
+            return result;
+        }, []);
+        return locationContainers;
+    }
+
+    deleteRestaurants(id, ev) {
+        this.state.locationService.remove(id);
+    }
+
     render () {
-        let content;
         if (!this.state.restaurants || !this.state.locations) {
-            return (<h1>Loading...</h1>);
+            return (<h1 id="loading-restaurants">Loading...</h1>);
         } else if (this.state.restaurants.length < 1) {
-            return (<h1>There are no restaurants in your list</h1>);
+            return (<h1 id="no-restaurants">There are no restaurants in your list</h1>);
         }
         return (
             <div className="restaurants-content" id="restaurants-content">
                 {/* Render only after restaurants has been initialized*/}
-                {this.state.locations.map(location => <ul className="location-container" key={location._id}>
-                    <h2>{location.name.toUpperCase()}</h2>
-                    {this.state.restaurants.map(restaurant => <li key={restaurant._id}>{restaurant.name}
-                        <button onClick={this.deleteRestaurant.bind(this, restaurant._id)} type="button" className="btn btn-danger">Delete</button>
-                    </li>)}
-                </ul>)}
+                {this.renderRestaurants()}
             </div>
         );
     }

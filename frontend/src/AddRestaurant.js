@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import client from './feathers';
+import $ from 'jquery';
 
 class AddRestaurant extends Component {
     constructor(props) {
@@ -63,6 +64,7 @@ class AddRestaurant extends Component {
                     errorMessage: 'A valid restaurant name is required',
                     formValidationClass: ''
                 });
+                this.showAlert(ev);
             })
             .catch(error => {
                 this.setState({
@@ -85,6 +87,17 @@ class AddRestaurant extends Component {
         ev.stopPropagation();
     }
 
+    showAlert(e) {
+  
+            $("#success-alert").slideDown().show();
+       
+    }
+
+    hideAlert() {
+        $("#success-alert").slideUp().hide(1000);
+    }
+
+
     deleteLocation(id, ev) {
         this.state.locationService.remove(id);
     }
@@ -92,13 +105,17 @@ class AddRestaurant extends Component {
     render() {
         return (
             <div>
-                <form className={"form-container needs-validation " + this.state.formValidationClass} onSubmit={this.addRestaurant.bind(this)} noValidate>
+                <form id="form" className={"form-container needs-validation " + this.state.formValidationClass} onSubmit={this.addRestaurant.bind(this)} noValidate>
                     <p className="description">Add your favourite restaurants.</p>
                     <div className="form-group">
                         <label htmlFor="resName" className="form-subtitle form-control-label">Enter restaurant name:</label>
-                        <input id="resName" className={this.state.restaurantClass} type="text" placeholder="Enter restaurant name" pattern="[A-Za-z]{1,30}" required/>
+                        <input id="resName" className={this.state.restaurantClass} type="text" placeholder="Enter restaurant name" pattern="[A-Za-z ]{1,30}" required/>
                         <div className="invalid-feedback">
                             {this.state.errorMessage}
+                        </div>
+                        <div id="success-alert" className="alert alert-success alert-dismissible fade show" role="alert">
+                            Restaurant added
+                            <button type="button" className="close" onClick={this.hideAlert} data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                     </div>
                     <div className="form-group">
