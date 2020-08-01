@@ -1,6 +1,6 @@
 {
-  "host": "localhost",
-  "port": 8080,
+  "host": "favemunchies.494902.xyz",
+  "port": "PORT",
   "public": "../../frontend/build",
   "paginate": {
     "default": 10,
@@ -18,7 +18,7 @@
       "header": {
         "typ": "access"
       },
-      "audience": "https://yourdomain.com",
+      "audience": "https://favemunchies.494902.xyz/",
       "issuer": "feathers",
       "algorithm": "HS256",
       "expiresIn": "1d"
@@ -30,13 +30,17 @@
     "oauth": {
       "redirect": "/",
       "google": {
-        "key": "<google oauth key>",
-        "secret": "<google oauth secret>",
+        "key": "638486569468-pmq7a6gmn5se493vv49nhb3oaopvedrs.apps.googleusercontent.com",
+        "secret": "GOOGLE_AUTH_SECRET",
         "scope": [
           "email",
           "profile",
           "openid"
-        ]
+        ],
+        "nonce": true,
+        "redirect_uri": "https://favemunchies.494902.xyz/oauth/google/callback",
+        "host": "https://favemunchies.494902.xyz/",
+        "callback": "/oauth/google/authenticate"
       }
     }
   },

@@ -1,0 +1,29 @@
+default:
+    image: node:alpine
+
+build:
+    stage: build
+    artifacts:
+        name: "$CI_JOB_NAME"
+        paths:
+            - frontend/build
+    script:
+        - cd backend
+        - npm install
+        - cd ../frontend
+        - yarn install
+        - yarn build
+    
+deploy-frontend:
+    stage: deploy
+    script:
+        - npm install -g firebase-tools
+        - firebase deploy --token "$FIREBASE_TOKEN"
+        
+deploy-backend:
+    stage: deploy
+    before_script:
+        - gcloud config set project $PROJECT_ID
+        - gcloud auth activate-service-account --key-file $GCP_SERVICE_CREDS
+    script:
+        - gcloud run deploy favemunchies --set-env-vars NODE_ENV='production',MONGODBURI=$MONGODBURI --memory 512Mi --image gcr.io/verdant-bus-276716/favemunchies --platform managed --region us-west1 --allow-unauthenticated
