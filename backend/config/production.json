@@ -1,5 +1,5 @@
 {
-  "host": "favemunchies.494902.xyz",
+  "host": "https://favemunchies.web.app",
   "port": "PORT",
   "public": "../../frontend/build",
   "paginate": {
@@ -18,7 +18,7 @@
       "header": {
         "typ": "access"
       },
-      "audience": "https://favemunchies.494902.xyz/",
+      "audience": "https://favemunchies.web.app",
       "issuer": "feathers",
       "algorithm": "HS256",
       "expiresIn": "1d"
@@ -38,8 +38,8 @@
           "openid"
         ],
         "nonce": true,
-        "redirect_uri": "https://favemunchies.494902.xyz/oauth/google/callback",
-        "host": "https://favemunchies.494902.xyz/",
+        "redirect_uri": "https://favemunchies.web.app/oauth/google/callback",
+        "host": "https://favemunchies.web.app",
         "callback": "/oauth/google/authenticate"
       }
     }
