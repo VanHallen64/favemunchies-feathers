@@ -4,7 +4,7 @@ import rest from '@feathersjs/rest-client';
 const client = feathers();
 
 // YOU HAVE TO UPDATE THIS WITH YOUR OWN DOMAIN NAME
-const restClient = rest();
+const restClient = rest("https://favemunchies.494902.xyz");
 
 client.configure(restClient.fetch(window.fetch));
 client.configure(feathers.authentication({

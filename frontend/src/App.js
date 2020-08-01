@@ -17,7 +17,6 @@ import Restaurants from './Restaurants';
 import AddLocation from './AddLocation';
 import AddRestaurant from './AddRestaurant';
 
-
 function App() {
 	const [loginState, setLogin] = useState(undefined);
 	
@@ -39,6 +38,7 @@ function App() {
 			$(this).toggleClass('active');
 		});
 	});
+	
 
 	if ( loginState === undefined) {
 		return(<Loading />);
@@ -64,7 +64,7 @@ function App() {
 						</ul>
 						<ul className="list-unstyled CTAs">
 							<li>
-								<a href="http://s000.tinyupload.com/download.php?file_id=95197881208836191904&t=9519788120883619190493819" className="download">Download Readme</a>
+								<a> <button onClick={client.logout} className="download">Sign Out</button></a>
 							</li>
 						</ul>
 					</nav>
