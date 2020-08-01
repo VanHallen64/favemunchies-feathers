@@ -64,7 +64,7 @@ function App() {
 						</ul>
 						<ul className="list-unstyled CTAs">
 							<li>
-								<a> <button onClick={client.logout} className="download">Sign Out</button></a>
+								<button onClick={client.logout} className="download">Sign Out</button>
 							</li>
 						</ul>
 					</nav>
