@@ -38,7 +38,7 @@
           "openid"
         ],
         "nonce": true,
-        "redirect_uri": "https://favemunchies.web.app/oauth/google/callback",
+        "redirect_uri": "https://favemunchies.494902.xyz/oauth/google/callback",
         "host": "favemunchies.web.app",
         "callback": "/oauth/google/authenticate"
       }
