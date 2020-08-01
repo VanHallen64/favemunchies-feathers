@@ -6,7 +6,7 @@ import { Hook, HookContext } from '@feathersjs/feathers';
 export default (options = {}): Hook => {
   return async (context: HookContext): Promise<HookContext> => {
     const { app, data } = context;
-
+    
     // If a name was not entered
     if (!data.name) {
       throw new Error("A location name is required");
@@ -22,10 +22,10 @@ export default (options = {}): Hook => {
     /* Check if the location already exists*/
     const locations = await app.service('locations').find({
       query: {
-        name: data.name
+        name: name
       }
     });
-
+    
     if(locations.total > 0) {
       throw new Error("You already added that location");
     }

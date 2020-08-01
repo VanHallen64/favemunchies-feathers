@@ -37,6 +37,7 @@
           "profile",
           "openid"
         ],
+        "nonce": true,
         "redirect_uri": "http://localhost:8080/oauth/google/callback",
         "host": "localhost",
         "callback": "/oauth/google/authenticate"

@@ -46,16 +46,6 @@ class Restaurants extends Component {
         restaurantService.on('created', restaurant => this.setState({
             restaurants: this.state.restaurants.concat(restaurant)
         }));
-
-        // // Remove restaurant from the list
-        // restaurantService.on('removed', restaurant => {
-        //     let restaurantsTemp = [...this.state.restaurants]; // make a separate copy of the array
-        //     let index = restaurantsTemp.indexOf(restaurant);
-        //     if (index !== -1) {
-        //         restaurantsTemp.splice(index, 1);
-        //         this.setState({restaurants: restaurantsTemp});
-        //     }
-        // })
     }
 
     renderRestaurants(element) {       

@@ -22,7 +22,7 @@ export default (options = {}): Hook => {
     /* Check if the restaurant already exists*/
     const restaurants = await app.service('restaurants').find({
       query: {
-        name: data.name
+        name: name
       }
     });
 

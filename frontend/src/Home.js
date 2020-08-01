@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import client from './feathers';
+import { authentication } from '@feathersjs/client';
 
 class Home extends Component {
     constructor(props) {
@@ -11,7 +13,8 @@ class Home extends Component {
     render () {
         return (
             <div>
-                <h1>Home</h1>
+                <h1>Welcome to</h1>
+
             </div>
         );
     }

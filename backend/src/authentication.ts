@@ -17,10 +17,8 @@ class GoogleStrategy extends OAuthStrategy {
 
     return {
       ...baseData,
-      // You can also set the display name to profile.name
-      name: profile.login,
       // The Google profile image
-      avatar: profile.avatar_url,
+      profilePicture: profile.picture,
       // The user email address (if available)
       email: profile.email
     };

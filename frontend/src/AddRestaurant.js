@@ -107,7 +107,7 @@ class AddRestaurant extends Component {
                     <div className="form-group">
                         <label htmlFor="resName" className="form-subtitle form-control-label">Enter restaurant name:</label>
                         <input id="resName" className={this.state.restaurantClass} type="text" placeholder="Enter restaurant name" pattern="[A-Za-z ]{1,30}" required/>
-                        <div className="invalid-feedback">
+                        <div className="invalid-feedback alert-danger">
                             {this.state.errorMessage}
                         </div>
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
