@@ -1,5 +1,5 @@
 {
-  "host": "https://favemunchies.web.app",
+  "host": "favemunchies.web.app",
   "port": "PORT",
   "public": "../../frontend/build",
   "paginate": {
@@ -30,7 +30,7 @@
     "oauth": {
       "redirect": "/",
       "google": {
-        "key": "638486569468-pmq7a6gmn5se493vv49nhb3oaopvedrs.apps.googleusercontent.com",
+        "key": "638486569468-j9an74mouop85ghclgmmqla9gq4kbg7r.apps.googleusercontent.com",
         "secret": "GOOGLE_AUTH_SECRET",
         "scope": [
           "email",
@@ -39,7 +39,7 @@
         ],
         "nonce": true,
         "redirect_uri": "https://favemunchies.web.app/oauth/google/callback",
-        "host": "https://favemunchies.web.app/",
+        "host": "favemunchies.web.app",
         "callback": "/oauth/google/authenticate"
       }
     }
