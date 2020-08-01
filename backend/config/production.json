@@ -1,5 +1,5 @@
 {
-  "host": "favemunchies.web.app",
+  "host": "favemunchies.494902.xyz",
   "port": "PORT",
   "public": "../../frontend/build",
   "paginate": {
@@ -18,7 +18,7 @@
       "header": {
         "typ": "access"
       },
-      "audience": "https://favemunchies.web.app",
+      "audience": "https://favemunchies.494902.xyz",
       "issuer": "feathers",
       "algorithm": "HS256",
       "expiresIn": "1d"
