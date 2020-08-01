@@ -39,7 +39,7 @@
         ],
         "nonce": true,
         "redirect_uri": "https://favemunchies.494902.xyz/oauth/google/callback",
-        "host": "favemunchies.web.app",
+        "host": "favemunchies.494902.xyz",
         "callback": "/oauth/google/authenticate"
       }
     }
