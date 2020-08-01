@@ -10,9 +10,9 @@ class Home extends Component {
 
     render () {
         return (
-            <div>
-                <h1>Welcome</h1>
-
+            <div style={{display: "inline-block", marginTop: "200px", textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000"}}>
+                <h1>Welcome to</h1>
+                <h1 className="page-title" style={{fontSize: "5rem", color: "grey"}}>Fave Munchies</h1>
             </div>
         );
     }

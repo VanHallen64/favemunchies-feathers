@@ -90,7 +90,7 @@ class AddLocation extends Component {
     render() {
         return (
             <form className={"form-container needs-validation " + this.state.formValidationClass} onSubmit={this.addLocation.bind(this)} noValidate>
-                <p className="description">Add your favorite restaurants here.</p>
+                <p className="description">Add the locations of your fave restaurants.</p>
                 <div className="form-group">
                     <label htmlFor="locName" className="form-subtitle form-control-label">Enter location name:</label>
                     <input id="locName" className={this.state.locationClass} type="text" placeholder="Enter location name" pattern="[A-Za-z ]{1,30}" required/>
