@@ -21,6 +21,7 @@ deploy-frontend:
         - firebase deploy --token "$FIREBASE_TOKEN"
         
 deploy-backend:
+    image: google/cloud-sdk:alpine
     stage: deploy
     before_script:
         - gcloud config set project $PROJECT_ID
