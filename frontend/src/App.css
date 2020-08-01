@@ -50,7 +50,7 @@ h1 {
 
 /* Fonts for paragraph and locations grid */
 p, .location-container {
-    font-family: Avenir, sans-serif;
+    font-family: 'Avenir', sans-serif;
     font-size: 1.5rem;
     color: white;
 }
