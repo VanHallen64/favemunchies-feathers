@@ -51,7 +51,7 @@ class Restaurants extends Component {
     renderRestaurants(element) {       
         let locationContainers = this.state.locations.reduce((result, location) => {
             let restaurantsInLocation = this.state.restaurants.filter(restaurant => {
-                return location.name == restaurant.location.name;
+                return location.name === restaurant.location.name;
             });
             let container = <ul className="location-container list-group" key={location._id}>
                 <h2>{location.name}</h2>

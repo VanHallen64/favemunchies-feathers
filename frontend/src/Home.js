@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import client from './feathers';
-import { authentication } from '@feathersjs/client';
 
 class Home extends Component {
     constructor(props) {

@@ -49,7 +49,7 @@ class AddRestaurant extends Component {
         const locationName = inputLocation.value.trim();
 
         const locationFound = this.state.locations.find(location => {
-            return location.name == locationName;
+            return location.name === locationName;
         });
 
         if (ev.target.checkValidity()) {
