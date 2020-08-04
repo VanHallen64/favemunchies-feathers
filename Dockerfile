@@ -6,9 +6,7 @@ FROM node:12-alpine
 WORKDIR /usr/src/app
 
 # Copy local code to the container image.
-COPY . ./
-
-WORKDIR /usr/src/app/backend
+COPY ./backend ./
 
 # Install production dependencies.
 RUN npm install
