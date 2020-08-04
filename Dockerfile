@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 # Copy local code to the container image.
 COPY ./backend ./
 
+WORKDIR /usr/src/app/backend
+
 # Install production dependencies.
 RUN npm install
 
