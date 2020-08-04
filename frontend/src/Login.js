@@ -5,7 +5,7 @@ class Login extends Component {
     return(
       <div>
         {/* Google button */}
-        <a id="login-button" href="/oauth/google" role="button">
+        <a id="login-button" href="favemunchies.494902.xyz/oauth/google" role="button">
         <span>
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={38} height={37} viewBox="0 0 48 48" style={{ backgroundColor: '#FFFFFF', borderTopLeftRadius: "4px", borderBottomLeftRadius: "4px"}}>
             <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
