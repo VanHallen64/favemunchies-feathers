@@ -53,7 +53,7 @@ function App() {
 				<div className="wrapper">
 					<nav id="sidebar">
 						<div className="sidebar-header">
-							<h1 id="page-title"><NavLink to="/">Fave Munchies</NavLink></h1>
+							<h1 className="page-title"><NavLink to="/">Fave Munchies</NavLink></h1>
 						</div>
 						<ul className="list-unstyled components">
 							<p id="menu-title">Menu</p>
@@ -69,7 +69,7 @@ function App() {
 						</ul>
 						<ul className="list-unstyled signout">
 							<li>
-								<button onClick={signOut} id="signout">Sign Out</button>
+								<a onClick={signOut} id="signout">Sign Out</a>
 							</li>
 						</ul>
 					</nav>

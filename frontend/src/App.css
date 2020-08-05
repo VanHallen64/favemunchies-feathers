@@ -192,7 +192,7 @@ ul.signout {
     padding: 20px;
 }
 
-ul.signout button {
+ul.signout a {
     text-align: center;
     font-size: 0.9em !important;
     display: block;
@@ -200,7 +200,7 @@ ul.signout button {
     margin-bottom: 5px;
 }
 
-button.download {
+a.download {
     background: rgb(17, 21, 255);
     color: rgb(255, 255, 255);
 }
