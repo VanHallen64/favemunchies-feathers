@@ -17,6 +17,11 @@ import Restaurants from './Restaurants';
 import AddLocation from './AddLocation';
 import AddRestaurant from './AddRestaurant';
 
+function signOut() {
+	client.logout();
+	window.location.reload(false);
+}
+
 function App() {
 	const [loginState, setLogin] = useState(undefined);
 	
@@ -48,7 +53,7 @@ function App() {
 				<div className="wrapper">
 					<nav id="sidebar">
 						<div className="sidebar-header">
-							<h1 className="page-title"><NavLink to="/">Fave Munchies</NavLink></h1>
+							<h1 id="page-title"><NavLink to="/">Fave Munchies</NavLink></h1>
 						</div>
 						<ul className="list-unstyled components">
 							<p id="menu-title">Menu</p>
@@ -62,14 +67,13 @@ function App() {
 								<NavLink to="/add-location" activeClassName="selected">Add Location</NavLink>
 							</li>
 						</ul>
-						<ul className="list-unstyled CTAs">
+						<ul className="list-unstyled signout">
 							<li>
-								<button onClick={client.logout} className="download">Sign Out</button>
+								<button onClick={signOut} id="signout">Sign Out</button>
 							</li>
 						</ul>
 					</nav>
 					<div className="mobile-sidebar">
-					
 						<button type="button" id="sidebarCollapse" className="nav-close-btn">
 							<span></span>
 							<span></span>
