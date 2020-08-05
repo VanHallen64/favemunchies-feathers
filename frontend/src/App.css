@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-@import "https://fonts.googleapis.com/css?family=Avenir&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap";
 
 @font-face {
     font-family: VeganStyle;
@@ -27,7 +27,7 @@ body {
 
 /* ------CONTENT STYLE-------- */
 
-#page-title {
+.page-title {
     font-family: 'VeganStyle', sans-serif;
     font-size: 3rem;
 }
@@ -50,7 +50,7 @@ h1 {
 
 /* Fonts for paragraph and locations grid */
 p, .location-container {
-    font-family: 'Avenir', sans-serif;
+    font-family: 'Lobster Two', sans-serif;
     font-size: 1.5rem;
     color: white;
 }
@@ -183,9 +183,10 @@ label {
     background: #fff;
 }
 
-button:hover, button:focus {
+.signout:hover, .signout:focus {
     transition: all 0.3s;
     background-color: white;
+    margin-left: 30px;
 }
 
 /* Sidebar collapse style */
