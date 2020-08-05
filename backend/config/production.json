@@ -1,5 +1,5 @@
 {
-  "host": "favemunchies.494902.xyz",
+  "host": "favemunchies-73riobndja-uw.a.run.app",
   "port": "PORT",
   "public": "../../frontend/build",
   "paginate": {
@@ -18,7 +18,7 @@
       "header": {
         "typ": "access"
       },
-      "audience": "https://favemunchies.494902.xyz",
+      "audience": "https://favemunchies-73riobndja-uw.a.run.app",
       "issuer": "feathers",
       "algorithm": "HS256",
       "expiresIn": "1d"
@@ -28,7 +28,7 @@
       "passwordField": "password"
     },
     "oauth": {
-      "redirect": "https://favemunchies.web.app",
+      "redirect": "https://favemunchies.web.app/",
       "google": {
         "key": "638486569468-j9an74mouop85ghclgmmqla9gq4kbg7r.apps.googleusercontent.com",
         "secret": "GOOGLE_AUTH_SECRET",
@@ -38,8 +38,8 @@
           "openid"
         ],
         "nonce": true,
-        "redirect_uri": "https://favemunchies.494902.xyz/oauth/google/callback",
-        "host": "favemunchies.494902.xyz",
+        "redirect_uri": "https://favemunchies-73riobndja-uw.a.run.app/oauth/google/callback",
+        "host": "favemunchies-73riobndja-uw.a.run.app",
         "callback": "/oauth/google/authenticate"
       }
     }

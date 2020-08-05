@@ -22,9 +22,8 @@ deploy-frontend:
 deploy-backend:
     image: google/cloud-sdk:alpine
     stage: deploy
-    before_script:
+    script:
         - gcloud config set project $PROJECT_ID
         - gcloud auth activate-service-account --key-file $GCP_SERVICE_CREDS
         - gcloud builds submit --tag gcr.io/verdant-bus-276716/favemunchies
-    script:
         - gcloud run deploy favemunchies --set-env-vars NODE_ENV='production',MONGODBURI=$MONGODBURI,GOOGLE_AUTH_SECRET=$GOOGLE_AUTH_SECRET --memory 512Mi --image gcr.io/verdant-bus-276716/favemunchies --platform managed --region us-west1 --allow-unauthenticated
