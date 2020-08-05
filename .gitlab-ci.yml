@@ -8,8 +8,6 @@ build:
         paths:
             - frontend/build
     script:
-        - cd backend
-        - npm install
         - cd ../frontend
         - yarn install
         - yarn build

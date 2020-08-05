@@ -6,7 +6,7 @@ FROM node:12-alpine
 WORKDIR /usr/src/app
 
 # Copy local code to the container image.
-COPY ./backend ./
+COPY . ./
 
 WORKDIR /usr/src/app/backend
 
