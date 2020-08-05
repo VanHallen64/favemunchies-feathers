@@ -1,7 +1,7 @@
 {
   "host": "favemunchies.494902.xyz",
   "port": "PORT",
-  "public": "../../frontend/build",
+  "public": "/build",
   "paginate": {
     "default": 10,
     "max": 50
@@ -28,7 +28,7 @@
       "passwordField": "password"
     },
     "oauth": {
-      "redirect": "https://favemunchies.web.app",
+      "redirect": "http://favemunchies.web.app",
       "google": {
         "key": "638486569468-j9an74mouop85ghclgmmqla9gq4kbg7r.apps.googleusercontent.com",
         "secret": "GOOGLE_AUTH_SECRET",
