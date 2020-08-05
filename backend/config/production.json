@@ -1,7 +1,7 @@
 {
   "host": "favemunchies.494902.xyz",
   "port": "PORT",
-  "public": "../..frontend/build",
+  "public": "../../frontend/build",
   "paginate": {
     "default": 10,
     "max": 50
