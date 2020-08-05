@@ -67,9 +67,9 @@ function App() {
 								<NavLink to="/add-location" activeClassName="selected">Add Location</NavLink>
 							</li>
 						</ul>
-						<ul className="list-unstyled signout">
+						<ul className="list-unstyled">
 							<li>
-								<button onClick={signOut} id="signout">Sign Out</button>
+								<button onClick={signOut} className="btn btn-primary">Sign Out</button>
 							</li>
 						</ul>
 					</nav>
