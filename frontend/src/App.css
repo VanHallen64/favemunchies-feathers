@@ -55,7 +55,7 @@ p, .location-container {
     color: white;
 }
 
-button, button:hover, button:focus {
+a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
@@ -167,13 +167,13 @@ label {
     padding: 10px;
 }
 
-#sidebar ul li button {
+#sidebar ul li a {
     padding: 10px;
     font-size: 1.5em;
     display: block;
 }
 
-#sidebar ul li button:hover {
+#sidebar ul li a:hover {
     color: rgb(0, 0, 0);
     background: #fff;
 }
@@ -183,7 +183,7 @@ label {
     background: #fff;
 }
 
-ul ul button {
+ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
 }
@@ -200,7 +200,7 @@ ul.signout button {
     margin-bottom: 5px;
 }
 
-#signout {
+button.download {
     background: rgb(17, 21, 255);
     color: rgb(255, 255, 255);
 }
