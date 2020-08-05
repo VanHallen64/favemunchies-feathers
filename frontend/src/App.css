@@ -183,26 +183,24 @@ label {
     background: #fff;
 }
 
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-}
-
 ul.signout {
     padding: 20px;
 }
 
-ul.signout a {
+ul.signout button {
     text-align: center;
     font-size: 0.9em !important;
     display: block;
     border-radius: 5px;
     margin-bottom: 5px;
-}
-
-a.download {
     background: rgb(17, 21, 255);
     color: rgb(255, 255, 255);
+}
+
+button:hover, button:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
 /* Sidebar collapse style */
