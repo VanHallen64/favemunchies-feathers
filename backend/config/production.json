@@ -31,7 +31,7 @@
       "redirect": "https://favemunchies.web.app/",
       "google": {
         "key": "638486569468-j9an74mouop85ghclgmmqla9gq4kbg7r.apps.googleusercontent.com",
-        "secret": "GOOGLE_AUTH_SECRET",
+        "secret": "GOOGLE_OAUTH_SECRET",
         "scope": [
           "email",
           "profile",

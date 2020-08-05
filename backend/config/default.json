@@ -31,7 +31,7 @@
       "redirect": "/",
       "google": {
         "key": "638486569468-pmq7a6gmn5se493vv49nhb3oaopvedrs.apps.googleusercontent.com",
-        "secret": "GOOGLE_AUTH_SECRET",
+        "secret": "GOOGLE_OAUTH_SECRET",
         "scope": [
           "email",
           "profile",
