@@ -69,7 +69,7 @@ function App() {
 						</ul>
 						<ul className="list-unstyled signout">
 							<li>
-								<a onClick={signOut} id="signout">Sign Out</a>
+								<a href="" onClick={signOut} id="signout">Sign Out</a>
 							</li>
 						</ul>
 					</nav>
