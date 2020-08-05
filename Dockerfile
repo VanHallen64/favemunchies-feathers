@@ -6,7 +6,13 @@ FROM node:12-alpine
 WORKDIR /usr/src/app
 
 # Copy local code to the container image.
-COPY ./backend ./
+COPY . ./
+WORKDIR ./frontend
+
+RUN yarn install
+RUN yarn build
+
+WORKDIR ../backend
 
 # Install production dependencies.
 RUN npm install
