@@ -7,12 +7,13 @@ WORKDIR /usr/src/app
 
 # Copy local code to the container image.
 COPY . ./
-WORKDIR ./frontend
+
+WORKDIR /usr/src/app/frontend
 
 RUN yarn install
 RUN yarn build
 
-WORKDIR ../backend
+WORKDIR /usr/src/app/backend
 
 # Install production dependencies.
 RUN npm install
